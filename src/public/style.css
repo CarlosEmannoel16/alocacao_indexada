@@ -1,0 +1,96 @@
+.titulo{
+   width: 100vw;
+   height: 50px;
+   background-color: black;
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   color:#fff;
+   font-size: 2em;
+}
+
+*{
+   margin:0;
+   padding:0;
+}
+
+.select{
+   width:150px;
+   height:30px;
+   border:none;
+   margin-right: 30px;
+}
+
+.opcoes{
+   padding: 20px;
+   display: flex;
+   flex-direction: row;
+}
+
+.linha{
+   display: flex;
+   flex-direction: column;
+}
+
+.formulario{
+   display: flex;
+   flex-direction: row;
+}
+
+.botao-gravar{
+   width: 70px;
+   background-color: black; 
+   color: #fff;
+   border: none;
+}
+
+.botao-deletar{
+   width: 70px;
+   background-color: red; 
+   color: #fff;
+   border: none;
+}
+
+.resultado{
+   width: 100vw;
+   height: auto;
+}
+
+table td{
+   width: 250px;
+}
+
+th{
+   text-align: left;
+   border-bottom: 1px solid black;
+}
+
+tr{
+   height: 25px;
+}
+
+.m-l{
+   margin-left: 20px;
+}
+
+.error{
+   width: 100vw;
+   height: 40px;
+   background-color: red;
+   color: #fff;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  
+}
+
+.sucess{
+   width: 100vw;
+   height: 40px;
+   background-color: greenyellow;
+   color: #fff;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+}

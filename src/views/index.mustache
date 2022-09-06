@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+  </head>
+
+  <body>
+   
+
+    {{#messageError}}
+    <div class="error">
+      Não há espaço
+    </div>
+    {{/messageError}}
+
+    {{^messageError}}
+    {{/messageError}}
+
+    {{#sucessMessage}}
+    <div class="sucess">
+      gravado com sucesso
+    </div>
+    {{/sucessMessage}}
+    {{^sucessMessage}}
+    {{/sucessMessage}}
+
+
+    <div class="titulo">Alocação Indexada</div>
+    <div class="opcoes">
+      <form class="formulario" action="/gravar" method="post">
+        <div class="linha">
+          <label>Tamanho do bloco</label>
+          <br />
+          <select class="select" name="size">
+            {{#sizeBlock}}
+            <option value="{{ value }}">
+              {{ value }}
+            </option>
+            {{/sizeBlock}}
+          </select>
+        </div>
+        <div class="linha">
+          <label>Tipo do bloco</label>
+          <br />
+          <select class="select" name="TipoDeBloco">
+            {{#blocos}}
+            <option value="{{ name }}">
+              {{ name }}
+            </option>
+            {{/blocos}}
+          </select>
+        </div>
+        <input type="hidden" name="disk" value='{{#disk}}{{index}},{{value}}|{{/disk}}'/>
+        <input type="hidden" name="diretorio" value="{{ diretorio }}" />
+        <input
+          type="hidden"
+          name="blocos"
+          value="{{#blocos}} {{ name }}{{/blocos}}"
+        />
+
+        <button type="submit">Opa</button>
+      </form>
+
+      <form class="formulario">
+        <div class="linha">
+          <label class="m-l">*Deletar</label>
+          <select class="select m-l">
+            {{#blocos}}
+            <option>
+              {{ name }}
+            </option>
+            {{/blocos}}
+          </select>
+        </div>
+        <input class="botao-deletar" type="button" value="Deletar" />
+      </form>
+    </div>
+
+    <div class="resultado">
+      <div class="disco">
+        <table>
+          <tr>
+            <th>*</th>
+            <th>Blocos</th>
+          </tr>
+          {{#disk}}
+          <tr>
+            <td>{{index}}</td>
+            <td>{{value}}</td>
+          </tr>
+          {{/disk}}
+        </table>
+      </div>
+
+      <div class="diretorio"></div>
+    </div>
+  </body>
+</html>
