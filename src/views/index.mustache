@@ -2,6 +2,8 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="/style.css" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   </head>
 
   <body>
@@ -26,62 +28,62 @@
 
 
     <div class="titulo">Alocação Indexada</div>
-    <div class="opcoes">
-      <form class="formulario" action="/gravar" method="post">
-        <div class="linha">
-          <label>Tamanho do bloco</label>
-          <br />
-          <select class="select" name="size">
-            {{#sizeBlock}}
-            <option value="{{ value }}">
-              {{ value }}
-            </option>
-            {{/sizeBlock}}
-          </select>
-        </div>
-        <div class="linha">
-          <label>Tipo do bloco</label>
-          <br />
-          <select class="select" name="TipoDeBloco">
-            {{#blocos}}
-            <option value="{{ name }}">
-              {{ name }}
-            </option>
-            {{/blocos}}
-          </select>
-        </div>
-        <input type="hidden" name="disk" value='{{#disk}}{{index}},{{value}}|{{/disk}}'/>
-        <input type="hidden" name="diretorio" value="{{ diretorio }}" />
-        <input
-          type="hidden"
-          name="blocos"
-          value="{{#blocos}} {{ name }}{{/blocos}}"
-        />
+    <div class="opcoes d-flex justify-content-around">
+          <form class="formulario" action="/gravar" method="post">
+            <div class="linha">
+              <label>Tamanho do bloco</label>
+              <br />
+              <select class="select" name="size">
+                {{#sizeBlock}}
+                <option value="{{ value }}">
+                  {{ value }}
+                </option>
+                {{/sizeBlock}}
+              </select>
+            </div>
+            <div class="linha">
+              <label>Tipo do bloco</label>
+              <br />
+              <select class="select" name="TipoDeBloco">
+                {{#blocos}}
+                <option value="{{ name }}">
+                  {{ name }}
+                </option>
+                {{/blocos}}
+              </select>
+            </div>
+            <input type="hidden" name="disk" value='{{#disk}}{{index}},{{value}}|{{/disk}}'/>
+            <input type="hidden" name="diretorio" value="{{ diretorio }}" />
+            <input
+              type="hidden"
+              name="blocos"
+              value="{{#blocos}} {{ name }}{{/blocos}}"
+            />
 
-        <button type="submit">Opa</button>
-      </form>
+            <button type="submit" class="btn btn-primary">Opa</button>
+          </form>
 
-      <form class="formulario">
-        <div class="linha">
-          <label class="m-l">*Deletar</label>
-          <select class="select m-l">
-            {{#blocos}}
-            <option>
-              {{ name }}
-            </option>
-            {{/blocos}}
-          </select>
-        </div>
-        <input class="botao-deletar" type="button" value="Deletar" />
-      </form>
+          <form class="formulario">
+            <div class="linha">
+              <label class="m-l">*Deletar</label>
+              <select class="select m-l">
+                {{#blocos}}
+                <option>
+                  {{ name }}
+                </option>
+                {{/blocos}}
+              </select>
+            </div>
+            <input class="botao-deletar" type="button" value="Deletar" />
+          </form>
     </div>
 
     <div class="resultado">
       <div class="disco">
-        <table>
+        <table class="table table-striped table-dark">
           <tr>
-            <th>*</th>
-            <th>Blocos</th>
+            <th scope="col">*</th>
+            <th scope="col">Blocos</th>
           </tr>
           {{#disk}}
           <tr>
